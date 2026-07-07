@@ -14,13 +14,13 @@ enum RFSource {
 RFSource currentSource = ANTENNA;
 
 void setRFSource(RFSource source) {
+  digitalWrite(HMC_EN, LOW);  // EN = LOW завжди, щоб switch working
+  
   if (source == ANTENNA) {
-    digitalWrite(HMC_EN, HIGH);
-    digitalWrite(HMC_CTRL, LOW);
+    digitalWrite(HMC_CTRL, HIGH); // Vctl HIGH → RFC-RF1 ON
     Serial.println(">> Switched to: ANTENNA");
   } else {
-    digitalWrite(HMC_EN, HIGH);
-    digitalWrite(HMC_CTRL, HIGH);
+    digitalWrite(HMC_CTRL, LOW);  // Vctl LOW → RFC-RF2 ON
     Serial.println(">> Switched to: REFERENCE (50 Ohm)");
   }
   currentSource = source;
