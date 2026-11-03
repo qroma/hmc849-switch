@@ -37,3 +37,7 @@ A push button switches the source, and the onboard LED indicates the currently s
 ## Notes
 
 This firmware is written using the Arduino framework and is intended for quick RF source switching experiments on the STM32 Nucleo platform.
+
+## RF signal vs. depth
+
+The `rf signal_vs_depth.py` script models tissue contributions to a radiometer signal across depth and frequency, and generates plots for muscle and fat tissue.
